@@ -6,31 +6,40 @@ public class Q2Main
         Scanner input = new Scanner(System.in);
         System.out.println("Enter amount to deposit: ");
         double deposit = input.nextDouble();
-        Scanner input2 = new Scanner(System.in);
-        System.out.println("Enter amount to withdraw: ");
-        double withdraw = input2.nextDouble();
-        input.close();
-        input2.close();
-        if (deposit < 0 || withdraw < 0)
+        
+        if (deposit < 0)
         {
+            input.close();
             throw new IllegalArgumentException("Amount must be a positive number");
         }
         else
         {
-            Q2Account myAccount = new Q2Account();
-            myAccount.deposit(deposit);
-            double balance = myAccount.getBalance();
-            double number = myAccount.getNumber(withdraw);
-            try
+            Scanner input2 = new Scanner(System.in);
+            System.out.println("Enter amount to withdraw: ");
+            double withdraw = input2.nextDouble();
+            input.close();
+            input2.close();
+            if (withdraw < 0)
             {
-                checkAccount(balance, withdraw, number);
-                myAccount.withdraw(withdraw);
-                balance = myAccount.getBalance();
-                System.out.println("The balance after withdraw is: $" + balance);
+                throw new IllegalArgumentException("Amount must be a positive number");
             }
-            catch (MyException e)
+            else
             {
-                System.out.println(e.getMessage());
+                Q2Account myAccount = new Q2Account();
+                myAccount.deposit(deposit);
+                double balance = myAccount.getBalance();
+                double number = myAccount.getNumber(withdraw);
+                try
+                {
+                    checkAccount(balance, withdraw, number);
+                    myAccount.withdraw(withdraw);
+                    balance = myAccount.getBalance();
+                    System.out.println("The balance after withdraw is: $" + balance);
+                }
+                catch (MyException e)
+                {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }
