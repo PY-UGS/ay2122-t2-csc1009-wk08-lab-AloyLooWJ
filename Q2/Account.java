@@ -3,7 +3,7 @@ public class Account
     private double accountBal;
     private double number;
 
-    public Q2Account()
+    public Account()
     {
         accountBal = 0;
     }
