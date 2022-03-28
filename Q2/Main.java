@@ -25,7 +25,7 @@ public class Main
             }
             else
             {
-                Q2Account myAccount = new Q2Account();
+                Account myAccount = new Account();
                 myAccount.deposit(deposit);
                 double balance = myAccount.getBalance();
                 double number = myAccount.getNumber(withdraw);
