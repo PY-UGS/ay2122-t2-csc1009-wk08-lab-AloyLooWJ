@@ -1,4 +1,4 @@
-public class Q2Account
+public class Account
 {
     private double accountBal;
     private double number;
